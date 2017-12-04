@@ -13,7 +13,7 @@ module.exports = {
       {
           test: /\.js?$/,
           exclude: /(node_modules|bower_components)/,
-          loader: 'babel',
+          loader: 'babel-loader',
           query: {
               presets: ['es2015', 'react']
           } //将react编译成js文件
@@ -31,6 +31,12 @@ module.exports = {
   ],
   resolve: {
     //自动扩展文件后缀名
-    extensions: ['', '.js', '.json', '.scss', '.ts']   
+    extensions: ['.js', '.json', '.scss', '.ts']   
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './build'),
+    publicPath: '/',
+    port: 8080,
+    historyApiFallback: true
   }
 }
