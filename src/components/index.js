@@ -1,13 +1,9 @@
-var React = require('react');
-var ProductBox;
-ProductBox = React.createClass({
-  render: function () {
-    return (
-      <div className="productBox">
-        hello react&es2015&webpack!!!
-      </div>
-    );
-  }
-});
-
-module.exports = ProductBox;
+import React from 'react';
+class Header extends React.Component {
+    render(){
+        return(
+            <h1> This is Header </h1>
+        )
+    }
+}
+export default Header; 
