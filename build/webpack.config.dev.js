@@ -29,26 +29,17 @@ module.exports = {
         }, {
             test: /\.css$/,
             exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'autoprefixer']
-            }),
+            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer']),
             include: [APP_PATH]
         }, {
             test: /\.less$/,
             exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'autoprefixer', 'less-loader']
-            }),
+            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'less']),
             include: [APP_PATH]
         }, {
             test: /\.scss$/,
             exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'autoprefixer', 'sass-loader']
-            }),
+            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'sass']),
             include: [APP_PATH]
         }, {
             test: /\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/,
@@ -64,12 +55,8 @@ module.exports = {
         }, {
             test: /\.jsx$/,
             exclude: /^node_modules$/,
-            loader: 'babel-loader',
-            include: [APP_PATH],
-            query: {
-                cacheDirectory: true,
-                presets: ['react', 'es2015']
-            }
+            loaders: ['jsx-loader', 'babel-loader']
+            // include: [APP_PATH]
         }]
     },
     plugins: [
@@ -86,6 +73,6 @@ module.exports = {
         new ExtractTextPlugin('[name].css')
     ],
     resolve: {
-        extensions: ['.js', '.jsx', '.less', '.scss', '.css'], //后缀名自动补全
+        extensions: ['', '.js', '.jsx', '.less', '.scss', '.css'], //后缀名自动补全
     }
 };

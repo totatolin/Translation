@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import ReactDOM, {render} from 'react-dom';
-import head from './components/index.jsx'
+import Head from './components/index.jsx';
 // import {Provider} from 'react-redux';
 // import route from './Router/Route'; //路由配置
 // import store from './Redux/Store/Store';
@@ -21,12 +21,11 @@ import head from './components/index.jsx'
 //     //console.log(store.getState())
 // });
 
-ReactDOM.render(
+render(
     // <Provider store={store}>
-    //     {route}
+    //     // {route}
     // </Provider>,
-    <head>
-    </head>,
-    document.body.appendChild(document.createElement('div'))
+    <Head />,
+    document.getElementById('app')
 );
 
