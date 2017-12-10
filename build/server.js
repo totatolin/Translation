@@ -3,19 +3,27 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config.dev');
 
 //代理服务器
-var proxy = [{
-	path: '/*/*', //必须得有一个文件地址，如果顶层文件夹名字不同，则用/*代替
-	// target: 'http://cangdu.org',
-	host: 'http://localhost:8000',
-	secure: false
-}];
+// var proxy = [{
+// 	// path: '/markdown', //必须得有一个文件地址，如果顶层文件夹名字不同，则用/*代替
+// 	// target: 'http://localhost:3000',
+// 	host: 'http://localhost:8000',
+// 	proxy: {
+// 		'proxy-api': 'http://localhost:3000'
+// 	},
+// 	secure: false
+// }];
 var server = new WebpackDevServer(webpack(config), {
 	publicPath: config.output.publicPath,
 	progress: true,
 	stats: {
 		colors: true,
 	},
-	proxy
+	// host: 'http://localhost:8000',
+	proxy: {
+		'proxy-api': 'http://localhost:3000'
+	},
+	changeOrigin: true,
+ 	secure: false
 });
 
 //将其他路由，全部返回index.html
