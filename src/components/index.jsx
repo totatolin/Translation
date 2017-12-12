@@ -4,7 +4,10 @@ class Header extends React.Component {
   constructor() {
     super();
     console.log(1);
-    axios.get('/proxy-api/markdown');
+    axios.get('/proxy-api/markdown')
+    .then((res) => {
+      console.log(res)
+    })
   }
   render () {
     return (
