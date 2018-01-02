@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import qs from 'qs';
-import DB from '../../sql.jsx'
 class A extends React.Component {
   constructor() {
     super();
@@ -9,7 +8,6 @@ class A extends React.Component {
       value: '',
       data: []
     }
-    console.dir(DB)
     axios.get('/proxy-api/test/test')
     .then((res) => {
       // this.state.data = res.data
@@ -35,6 +33,7 @@ class A extends React.Component {
       // <div dangerouslySetInnerHTML={{__html: this.state.data}}>
       // </div>
       <div>
+        <p>123</p>
         {this.state.data.map((item) => {
           return (
             <div key={item.id}>

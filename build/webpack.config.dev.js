@@ -11,7 +11,10 @@ var BUILD_PATH = path.resolve(ROOT_PATH, '/dist/static'); //发布文件所存�
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
     entry: {
-        app: APP_FILE
+        app: [
+            'webpack-hot-middleware/client',
+            APP_FILE
+        ]
     },
     output: {
         publicPath: '/dist/static/', //编译好的文件，在服务器的路径,这是静态资源引用路径
@@ -23,7 +26,7 @@ module.exports = {
         loaders: [{
             test: /\.js$/,
             exclude: /^node_modules$/,
-            loader: 'babel-loader',
+            loader: ['react-hot', 'babel-loader'],
             include: [APP_PATH]
         }, {
             test: /\.css$/,
@@ -54,7 +57,7 @@ module.exports = {
         }, {
             test: /\.jsx$/,
             exclude: /^node_modules$/,
-            loaders: ['jsx-loader', 'babel-loader']
+            loaders: ['react-hot', 'jsx-loader', 'babel-loader']
             // include: [APP_PATH]
         }]
     },
@@ -63,6 +66,7 @@ module.exports = {
       process: 'empty'
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('development') //定义编译环境
