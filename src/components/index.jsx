@@ -3,15 +3,29 @@ import axios from 'axios';
 class Header extends React.Component {
   constructor() {
     super();
-    console.log(1);
-    axios.get('/proxy-api/markdown')
+    this.state = {
+      aaa: null,
+      bbb: 123
+    }
+    axios.get('/proxy-api/test/test')
     .then((res) => {
-      console.log(res)
+      // this.state.aaa = res.data
+      // console.log(this.state.aaa)
+      // this.setState({
+      //   aaa: res.data
+      // })
     })
   }
   render () {
+    let that = this
+    // setTimeout(() => {
+    //   console.log(that.state.aaa)
+    // }, 1000)
     return (
-      <h1> This is Header </h1>
+      // this.state.aaa
+      // <p>{this.state.bbb}</p>
+      <div dangerouslySetInnerHTML={{__html: this.state.aaa}}>
+      </div>
     )
   }
 }
