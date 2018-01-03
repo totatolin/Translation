@@ -41,8 +41,8 @@ module.exports = {
         }, {
             test: /\.scss$/,
             exclude: /^node_modules$/,
-            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'sass']),
-            include: [APP_PATH]
+            loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'sass'])
+            // include: [APP_PATH]
         }, {
             test: /\.(eot|woff|svg|ttf|woff2|gif|appcache)(\?|$)/,
             exclude: /^node_modules$/,

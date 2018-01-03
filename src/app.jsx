@@ -8,7 +8,7 @@ import Routers from './router/router.jsx'; //路由配置
 // import store from './Redux/Store/Store';
 // import './Config/Config.js';//引入默认配置
 
-// import './Style/common.scss';
+// import './style/aaa.scss';
 // import './Style/head.scss';
 // import './Style/index.scss';
 // import './Style/chooseProducts.scss';
