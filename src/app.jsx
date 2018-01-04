@@ -24,14 +24,14 @@ import './style/aaa.scss';
 //     //console.log(store.getState())
 // });
 
-// render(
-//     // <Provider store={store}>
-//     //     // {route}
-//     // </Provider>,
-//     // <A />,
-//     <Routers />,
-//     document.getElementById('app')
-// );
+render(
+    // <Provider store={store}>
+    //     // {route}
+    // </Provider>,
+    // <A />,
+    <Routers />,
+    document.getElementById('app')
+);
 
-ReactDOM.render(<DatePicker />, document.getElementById('app'));
+// ReactDOM.render(<DatePicker />, document.getElementById('app'));
 

@@ -7,14 +7,16 @@ class A extends React.Component {
     super();
     this.state = {
       value: '',
-      data: []
+      data: [],
+      img: ''
     }
-    axios.get('/proxy-api/test/test')
+    // axios.get('/proxy-api/test/test')
+    axios.get('/proxy-api/img/img')
     .then((res) => {
       // this.state.data = res.data
       // console.log(this.state.aaa)
       this.setState({
-        data: res.data
+        img: res.data
       })
       console.log(res)
     })
@@ -42,6 +44,7 @@ class A extends React.Component {
             </div>
           )
         })}
+        <img src={this.state.img}></img>
         <input value={this.state.value} onChange={this.valueChange}></input>
         <button onClick={this.add}>add</button>
       </div>

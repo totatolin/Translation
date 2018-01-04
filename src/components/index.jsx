@@ -7,7 +7,8 @@ class Header extends React.Component {
       aaa: null,
       bbb: 123
     }
-    axios.get('/proxy-api/test/test')
+    // axios.get('/proxy-api/test/test')
+    axios.get('/proxy-api/img/img')
     .then((res) => {
       // this.state.aaa = res.data
       // console.log(this.state.aaa)
