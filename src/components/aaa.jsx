@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import qs from 'qs';
-import _aaa from '../style/aaa.scss'
+import '../style/aaa.scss';
 class A extends React.Component {
   constructor() {
     super();
@@ -34,7 +34,7 @@ class A extends React.Component {
       // <div dangerouslySetInnerHTML={{__html: this.state.data}}>
       // </div>
       <div>
-        <p className={_aaa.test}>12345</p>
+        <p className="test">12345</p>
         {this.state.data.map((item) => {
           return (
             <div key={item.id}>
