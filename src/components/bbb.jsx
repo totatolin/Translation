@@ -45,6 +45,22 @@ class B extends React.Component {
         )
       }
     })
+    var Input = React.createClass({
+      getInitialState: function () {
+        return {value: 'hello'}
+      },
+      handleChange: function (event) {
+        this.setState({value: event.target.value})
+      },
+      render: function () {
+        return (
+          <div>
+            <input value={this.state.value} onChange={this.handleChange}/>
+            <p>{value}</p>
+          </div>
+        )
+      }
+    })
     return (
       <div>
       	<p>222</p>
@@ -53,6 +69,7 @@ class B extends React.Component {
         <p>{10+12}</p>
         <Name name="linsen" />
         <Time />
+        <Input />
       </div>
     )
   }
