@@ -13,9 +13,9 @@ class B extends React.Component {
         return {clickNum: 0}
       },
       click: function () {
-        this.setState(function(state) {
-          return {clickNum: state.clickNum + 1}
-        })
+        this.setState(function() {
+          return {clickNum: this.state.clickNum + 1}
+        }.bind(this))
       },
       render: function () {
         return (
@@ -26,6 +26,25 @@ class B extends React.Component {
         )
       }
     })
+    var Time = React.createClass({
+      getInitialState: function () {
+        return {t: 10}
+      },
+      componentDidMount: function () {
+        setInterval(function () {
+          if (this.state.t > 0) {
+            this.setState({
+              t: this.state.t - 1
+            })
+          }
+        }.bind(this), 1000)
+      },
+      render: function () {
+        return (
+          <p>{this.state.t}</p>
+        )
+      }
+    })
     return (
       <div>
       	<p>222</p>
@@ -33,6 +52,7 @@ class B extends React.Component {
         <p>{i}</p>
         <p>{10+12}</p>
         <Name name="linsen" />
+        <Time />
       </div>
     )
   }
